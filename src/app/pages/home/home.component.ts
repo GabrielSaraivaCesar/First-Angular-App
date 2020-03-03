@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
-// Redux
-import { Store, select } from '@ngrx/store';
-import { StoreInterface } from '../../interfaces/store';
-import {setOn, setOff} from '../../redux/actions/loadingAction';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -13,25 +9,35 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  // States
-  loading : Observable<boolean>;
+  state = {
+    firstName: '',
+    lastName: ''
+  }
 
-  constructor(
-    private store: Store<StoreInterface>
-  ) { }
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+  });
+
+  constructor() { }
 
   ngOnInit() {
-    this.loading = this.store.pipe(select('loading'));
   }
 
-  setLoading(stateValue : boolean) {
-    if (stateValue) {
-      this.store.dispatch(setOn());
-    }
-    else {
-      this.store.dispatch(setOff());
-    }
+  setState(obj: Object) : void {
+    this.state = {...this.state, ...obj}
   }
+
+  onKey(event: any) {
+    let inputName = event.target.getAttribute('formcontrolname');
+    let inputValue = event.target.value;
+    let updatedState = {
+      [inputName]: inputValue
+    }
+
+    this.setState(updatedState);
+  }
+ 
 
 
 }

@@ -1,3 +1,25 @@
 <p>
-  home works!
+  Test form input
 </p>
+
+<form [formGroup]="profileForm">
+  
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName" (keydown)="onKey($event)">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName" (keydown)="onKey($event)">
+  </label>
+
+</form>
+
+
+<b>States</b><br>
+firstName:
+"{{state.firstName}}"
+<br>
+lastName:
+"{{state.lastName}}"

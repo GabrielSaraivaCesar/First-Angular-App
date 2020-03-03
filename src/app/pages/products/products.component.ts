@@ -32,7 +32,6 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts() {
-    
     this.setLoading(true);
     this.productService.getProducts()
     .subscribe(products => {
@@ -42,13 +41,10 @@ export class ProductsComponent implements OnInit {
   }
 
   setLoading(stateValue : boolean) {
-    
     if (stateValue) {
-      document.querySelector('body').classList.add('noScroll');
       this.store.dispatch(setOn());
     }
     else {
-      document.querySelector('body').classList.remove('noScroll');
       this.store.dispatch(setOff());
     }
   }

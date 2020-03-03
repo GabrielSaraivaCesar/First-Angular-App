@@ -19,5 +19,9 @@ export class ProductService {
     // Obs: Sempre utilizar uma interface como tipo da requisição para previnir possíveis erros
   }
 
+  public getOneProduct(id : Number) : Observable<Object> {
+    return this.http.get<ProductsInterface>(this.apiUrl + '/' + id);
+  }
+
 }
 
