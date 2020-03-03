@@ -1,0 +1,33 @@
+.card-container {
+    width: 250px;
+    height: 300px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.26);
+    margin: 20px;
+}
+.card-image {
+    width: 100%;
+    height: 70%;
+    background-color: rgb(185, 185, 185);
+}
+.card-image img {
+    width: 100%;
+    height: 100%;
+}
+.card-info {
+    height: 30%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.card-info h3 {
+    padding: 10px 20px 0;
+
+    font-size: 15px;
+}
+
+.card-info h4 {
+    
+    padding: 0px 20px 10px;
+}

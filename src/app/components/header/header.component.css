@@ -1,0 +1,21 @@
+header {
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+nav {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 30px;
+}
+nav a {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(136, 136, 136);
+}
+nav a.active {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
