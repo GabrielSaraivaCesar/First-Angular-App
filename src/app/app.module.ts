@@ -5,9 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- Possui
 import { Location } from '@angular/common'; // <-- Serviço para controlar rotas
 import { HttpClientModule } from '@angular/common/http'; // Modulo para requisicoes http
 import { StoreModule } from '@ngrx/store'; // <-- Redux Store module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Redux
 import { store } from './redux/store';
+import { EffectsModule } from '@ngrx/effects'
+import { LoadingEffects } from './redux/effects/loading.effects';
+import { ProductsEffects } from './redux/effects/products.effects';
+
 
 // Components
 import { HeaderComponent } from './components/header/header.component';
@@ -21,7 +26,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'}, // <-- Path que só existe para redirecionar para outro pois o active route não funciona bem no caminho raiz
   {path: 'home', component: HomeComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'products/:id', component: ProductDetailComponent},
@@ -40,8 +45,10 @@ const appRoutes: Routes = [
   imports: [
     HttpClientModule,
     StoreModule.forRoot(store),
+    EffectsModule.forRoot([ProductsEffects]),
     RouterModule.forRoot(appRoutes, { enableTracing: true}),
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule
 

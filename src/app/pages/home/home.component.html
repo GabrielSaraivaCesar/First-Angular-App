@@ -1,20 +1,21 @@
-<p>
-  Test form input
-</p>
+<div class="container">
 
-<form [formGroup]="profileForm">
-  
-  <label>
-    First Name:
-    <input type="text" formControlName="firstName" (keydown)="onKey($event)">
-  </label>
+  <form [formGroup]="profileForm">
+    
+    <label>
+      <span>First Name:</span>
+      <input type="text" formControlName="firstName" (keydown)="onKey($event)">
+    </label>
 
-  <label>
-    Last Name:
-    <input type="text" formControlName="lastName" (keydown)="onKey($event)">
-  </label>
+    <label>
+      <span>Last Name:</span> 
+      <input type="text" formControlName="lastName" (keydown)="onKey($event)">
+    </label>
 
-</form>
+    <button (click)="onSubmit($event)">Submit</button>
+
+  </form>
+</div>
 
 
 <b>States</b><br>

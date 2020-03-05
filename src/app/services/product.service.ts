@@ -15,6 +15,7 @@ export class ProductService {
   ) { }
 
   public getProducts() : Observable<Object[]> {
+    console.log('GET PRODUCTS')
     return this.http.get<ProductsInterface[]>(this.apiUrl); // <-- O service é responsável por toda requisição externa
     // Obs: Sempre utilizar uma interface como tipo da requisição para previnir possíveis erros
   }

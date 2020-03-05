@@ -1,5 +1,5 @@
 <a [routerLink]="['/products/' + id]" routerLinkActive="active" >
-    <div class="card-container">
+    <div class="card-container" [@openClose]="isOpen ? 'open' : 'closed'" (click)="switchOpen($event)">
         <div class="card-image"></div>
         <div class="card-info">
             <h3>{{title}}</h3>

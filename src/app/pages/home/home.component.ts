@@ -37,6 +37,10 @@ export class HomeComponent implements OnInit {
 
     this.setState(updatedState);
   }
+
+  onSubmit(event: any) {
+    console.log(this.profileForm.value);
+  }
  
 
 

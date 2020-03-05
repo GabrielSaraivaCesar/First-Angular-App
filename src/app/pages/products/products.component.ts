@@ -5,12 +5,13 @@ import { ProductService } from '../../services/product.service';
 import { Store, select } from '@ngrx/store';
 import { StoreInterface } from '../../interfaces/store';
 import {setOn, setOff} from '../../redux/actions/loadingAction';
+import {loadProducts} from '../../redux/actions/productsActions';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
 
@@ -28,9 +29,10 @@ export class ProductsComponent implements OnInit {
       this.loading = loadingValue;
     })
 
-    this.getProducts();
+    this.store.dispatch(loadProducts())
   }
 
+  /*
   getProducts() {
     this.setLoading(true);
     this.productService.getProducts()
@@ -39,6 +41,7 @@ export class ProductsComponent implements OnInit {
       this.setLoading(false);
     })
   }
+  */
 
   setLoading(stateValue : boolean) {
     if (stateValue) {
